@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_demo/features/home/models/home_tab.dart';
 
+import '../../repositories/itunes_repository/itunes_repository.dart';
 import '../search_albums/view.dart';
 import 'logic.dart';
 
@@ -18,7 +19,9 @@ class HomePage extends StatelessWidget {
         return IndexedStack(
           index: state.selectedTab.value.index,
           children: [
-            SearchAlbumsPage(),
+            SearchAlbumsPage(
+              itunesRepository: Get.find<ItunesRepository>(),
+            ),
             Container(),
           ],
         );

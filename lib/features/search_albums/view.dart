@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../repositories/itunes_repository/itunes_repository.dart';
 import 'logic.dart';
+import 'state.dart';
 
 class SearchAlbumsPage extends StatelessWidget {
-  SearchAlbumsPage({Key? key}) : super(key: key);
+  final SearchAlbumsLogic logic;
+  final SearchAlbumsState state;
 
-  final logic = Get.put(SearchAlbumsLogic());
-  final state = Get.find<SearchAlbumsLogic>().state;
+  SearchAlbumsPage({
+    Key? key,
+    required ItunesRepository itunesRepository,
+  })  : logic = Get.put(SearchAlbumsLogic(itunesRepository: itunesRepository)),
+        state = Get.find<SearchAlbumsLogic>().state,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Search'),
+      ),
       body: const Center(
         child: Text('SearchAlbumsPage'),
       ),
