@@ -36,3 +36,22 @@
 
 ---
 
+## Project Structure
+
+### features base 
+
+```
+‣ lib
+  ‣ src
+    ‣ features
+      ‣ account
+      ‣ admin
+      ‣ checkout
+      ‣ leave_review_page
+      ‣ orders_list
+      ‣ product_page
+      ‣ products_list
+      ‣ shopping_cart
+      ‣ sign_in
+```
+
