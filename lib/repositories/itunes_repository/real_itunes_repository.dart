@@ -25,7 +25,12 @@ class RealItunesRepository extends ItunesRepository {
       });
       ItunesSearchResponse itunesSearchResponse =
           ItunesSearchResponse.fromJson(json.decode(response.data));
-      return itunesSearchResponse.results;
+
+      if (itunesSearchResponse.resultCount > 0) {
+        return itunesSearchResponse.results;
+      } else {
+        throw ItunesRepositoryNotFoundException();
+      }
     } on DioError catch (dioError) {
       throw ItunesRepositoryNetworkException(dioError: dioError);
     } catch (error) {

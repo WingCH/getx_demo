@@ -26,11 +26,14 @@
    - [dio](https://pub.dev/packages/dio)
 5. Model (Convert JSON to model)
    - [freezed](https://pub.dev/packages/freezed)
-6. Theme
-7. Localisation
+6. Image
+   - [cached_network_image](https://pub.dev/packages/cached_network_image)
+
+7. Theme
+8. Localisation
    - [intl](https://pub.dev/packages/intl)
      - [Tutorial](https://wingch-apps.medium.com/flutter-intl-%E5%9C%8B%E9%9A%9B%E5%8C%96-%E6%9C%AC%E5%9C%B0%E5%8C%96-2775e6218c80)
-8. Webview
+9. Webview
    - [webview_flutter](https://pub.dev/packages/webview_flutter) (official)
    - [flutter_inappwebview](https://pub.dev/packages/flutter_inappwebview)
 
