@@ -1,0 +1,14 @@
+
+{
+  "@@locale": "zh_Hans",
+  "homePageTabSearch": "搜寻",
+  "homePageTabBookmark": "书签",
+  "homePageSettingButton": "设定",
+  "searchAlbumsPageTitle": "搜寻",
+  "searchAlbumsPageSearchBarName": "专辑名称",
+  "searchAlbumsPagePopularSearches": "热门搜寻",
+  "bookmarkPageTitle": "书签",
+  "settingPageTitle": "设定",
+  "settingPageGeneral": "一般",
+  "settingPageLanguage": "语言"
+}

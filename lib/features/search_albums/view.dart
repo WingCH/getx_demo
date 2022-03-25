@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../common_widgets/albums_list_widget.dart';
 import '../../common_widgets/error_message_widget.dart';
 import '../../common_widgets/shimmer_loading.dart';
+import '../../generated/l10n.dart';
 import '../../repositories/bookmark_repository/bookmark_repository.dart';
 import '../../repositories/itunes_repository/itunes_repository.dart';
 import 'logic.dart';
@@ -33,9 +34,10 @@ class SearchAlbumsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Search'),
+        title: Text(S.current.searchAlbumsPageTitle),
         actions: [
           IconButton(
+            tooltip: S.current.homePageSettingButton,
             icon: const Icon(Icons.settings),
             onPressed: logic.onSetting,
           )
@@ -45,9 +47,9 @@ class SearchAlbumsPage extends StatelessWidget {
         children: [
           TextField(
             controller: logic.searchBarTextEditingController,
-            decoration: const InputDecoration(
-              labelText: '專輯名稱',
-              prefixIcon: Icon(Icons.search),
+            decoration: InputDecoration(
+              labelText: S.current.searchAlbumsPageSearchBarName,
+              prefixIcon: const Icon(Icons.search),
             ),
             onChanged: (String input) {
               logic.onSearch(searchKey: input);

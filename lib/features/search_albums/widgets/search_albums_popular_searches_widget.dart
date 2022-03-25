@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n.dart';
+
 class SearchAlbumsPopularSearchesWidget extends StatelessWidget {
   SearchAlbumsPopularSearchesWidget({
     Key? key,
@@ -30,7 +32,7 @@ class SearchAlbumsPopularSearchesWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              '熱門搜尋',
+              S.current.searchAlbumsPagePopularSearches,
               style: Theme.of(context).textTheme.headline5,
             ),
             ...popularKeys.map((popularKey) {

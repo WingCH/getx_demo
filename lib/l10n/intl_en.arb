@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "homePageTabSearch": "Search",
+  "homePageTabBookmark": "Bookmark",
+  "homePageSettingButton": "Setting",
+  "searchAlbumsPageTitle": "Search",
+  "searchAlbumsPageSearchBarName": "Album name",
+  "searchAlbumsPagePopularSearches": "Popular searches",
+  "bookmarkPageTitle": "Bookmark",
+  "settingPageTitle": "Setting",
+  "settingPageGeneral": "General",
+  "settingPageLanguage": "Language"
+}

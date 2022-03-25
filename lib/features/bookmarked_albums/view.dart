@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../common_widgets/albums_list_widget.dart';
+import '../../generated/l10n.dart';
 import '../../repositories/bookmark_repository/bookmark_repository.dart';
 import 'logic.dart';
 import 'state.dart';
@@ -26,9 +27,10 @@ class BookmarkedAlbumsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Bookmarked'),
+        title: Text(S.current.bookmarkPageTitle),
         actions: [
           IconButton(
+            tooltip: S.current.homePageSettingButton,
             icon: const Icon(Icons.settings),
             onPressed: logic.onSetting,
           )

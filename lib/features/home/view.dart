@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_demo/features/home/models/home_tab.dart';
 
+import '../../generated/l10n.dart';
 import '../../repositories/bookmark_repository/bookmark_repository.dart';
 import '../../repositories/itunes_repository/itunes_repository.dart';
 import '../bookmarked_albums/view.dart';
@@ -44,7 +45,11 @@ class HomePage extends StatelessWidget {
                   : tab == HomeTab.bookmark
                       ? const Icon(Icons.bookmarks_outlined)
                       : const SizedBox.shrink(),
-              label: tab.name,
+              label: tab == HomeTab.search
+                  ? S.current.homePageTabSearch
+                  : tab == HomeTab.bookmark
+                      ? S.current.homePageTabBookmark
+                      : tab.name,
             );
           }).toList(),
         );

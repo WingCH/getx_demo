@@ -1,0 +1,13 @@
+{
+  "@@locale": "zh_Hant",
+  "homePageTabSearch": "搜尋",
+  "homePageTabBookmark": "書籤",
+  "homePageSettingButton": "設定",
+  "searchAlbumsPageTitle": "搜尋",
+  "searchAlbumsPageSearchBarName": "專輯名稱",
+  "searchAlbumsPagePopularSearches": "熱門搜尋",
+  "bookmarkPageTitle": "書籤",
+  "settingPageTitle": "設定",
+  "settingPageGeneral": "一般",
+  "settingPageLanguage": "語言"
+}

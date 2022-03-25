@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:settings_ui/settings_ui.dart';
 
+import '../../generated/l10n.dart';
 import 'logic.dart';
 
 class SettingPage extends StatelessWidget {
@@ -15,17 +16,17 @@ class SettingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Setting'),
+        title: Text(S.current.settingPageTitle),
       ),
-      body:  SettingsList(
+      body: SettingsList(
         sections: [
           SettingsSection(
-            title: Text('Common'),
+            title: Text(S.current.settingPageGeneral),
             tiles: <SettingsTile>[
               SettingsTile.navigation(
-                leading: Icon(Icons.language),
-                title: Text('Language'),
-                value: Text('English'),
+                leading: const Icon(Icons.language),
+                title: Text(S.current.settingPageLanguage),
+                value: const Text('English'),
               ),
             ],
           ),
