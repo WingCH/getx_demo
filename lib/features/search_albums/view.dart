@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../common_widgets/albums_list_widget.dart';
 import '../../common_widgets/error_message_widget.dart';
+import '../../common_widgets/shimmer_loading.dart';
 import '../../repositories/bookmark_repository/bookmark_repository.dart';
 import '../../repositories/itunes_repository/itunes_repository.dart';
 import 'logic.dart';
@@ -37,7 +38,7 @@ class SearchAlbumsPage extends StatelessWidget {
       body: Column(
         children: [
           TextField(
-            controller: logic.textEditingController,
+            controller: logic.searchBarTextEditingController,
             decoration: const InputDecoration(
               labelText: '專輯名稱',
               prefixIcon: Icon(Icons.search),
@@ -57,9 +58,7 @@ class SearchAlbumsPage extends StatelessWidget {
                     },
                   );
                 case SearchAlbumsPageStatus.loading:
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
+                  return const ShimmerLoading();
                 case SearchAlbumsPageStatus.success:
                   return AlbumsListWidget(
                     albums: state.itunesAlbums.value,

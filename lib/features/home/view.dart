@@ -4,6 +4,7 @@ import 'package:getx_demo/features/home/models/home_tab.dart';
 
 import '../../repositories/bookmark_repository/bookmark_repository.dart';
 import '../../repositories/itunes_repository/itunes_repository.dart';
+import '../bookmarked_albums/view.dart';
 import '../search_albums/view.dart';
 import 'logic.dart';
 
@@ -24,7 +25,9 @@ class HomePage extends StatelessWidget {
               itunesRepository: Get.find<ItunesRepository>(),
               bookmarkRepository: Get.find<BookmarkRepository>(),
             ),
-            Container(),
+            BookmarkedAlbumsPage(
+              bookmarkRepository: Get.find<BookmarkRepository>(),
+            ),
           ],
         );
       }),

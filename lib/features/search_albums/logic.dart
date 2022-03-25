@@ -20,22 +20,24 @@ class SearchAlbumsLogic extends GetxController {
   });
 
   // for set textfield text programmatically
-  late TextEditingController textEditingController;
+  late TextEditingController searchBarTextEditingController;
 
   @override
   Future<void> onInit() async {
     super.onInit();
-
-    textEditingController = TextEditingController();
+    // init
+    searchBarTextEditingController = TextEditingController();
     state.bookmarkedAlbums = bookmarkRepository.getBookmarkedAlbums();
 
-    debounce<String>(state.searchKey, (String newSearchKey) {
+    // fetch Albums when search key changes
+    ever<String>(state.searchKey, (String newSearchKey) {
       fetchAlbums(searchKey: newSearchKey);
-    }, time: const Duration(milliseconds: 500));
+    });
   }
 
   void onSelectPopularKey({required String searchKey}) {
-    textEditingController.text = searchKey;
+    // set 'searchKey' to search bar manually
+    searchBarTextEditingController.text = searchKey;
     onSearch(searchKey: searchKey);
   }
 
