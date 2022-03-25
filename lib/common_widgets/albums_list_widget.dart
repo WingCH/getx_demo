@@ -9,12 +9,12 @@ class AlbumsListWidget extends StatelessWidget {
     Key? key,
     required this.albums,
     required this.bookmarkedAlbums,
-    required this.onBookmarked,
+    required this.onBookmark,
   }) : super(key: key);
 
   final List<ItunesAlbum> albums;
   final List<ItunesAlbum> bookmarkedAlbums;
-  final Function(ItunesAlbum) onBookmarked;
+  final Function(ItunesAlbum) onBookmark;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class AlbumsListWidget extends StatelessWidget {
                 ? const Icon(Icons.bookmark_outlined)
                 : const Icon(Icons.bookmark_border_outlined),
             onPressed: () {
-              onBookmarked(itunesAlbum);
+              onBookmark(itunesAlbum);
             },
           ),
         );

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../common_widgets/albums_list_widget.dart';
 import '../../common_widgets/error_message_widget.dart';
+import '../../repositories/bookmark_repository/bookmark_repository.dart';
 import '../../repositories/itunes_repository/itunes_repository.dart';
 import 'logic.dart';
 import 'models/search_albums_page_status.dart';
@@ -16,7 +17,13 @@ class SearchAlbumsPage extends StatelessWidget {
   SearchAlbumsPage({
     Key? key,
     required ItunesRepository itunesRepository,
-  })  : logic = Get.put(SearchAlbumsLogic(itunesRepository: itunesRepository)),
+    required BookmarkRepository bookmarkRepository,
+  })  : logic = Get.put(
+          SearchAlbumsLogic(
+            itunesRepository: itunesRepository,
+            bookmarkRepository: bookmarkRepository,
+          ),
+        ),
         state = Get.find<SearchAlbumsLogic>().state,
         super(key: key);
 
@@ -56,8 +63,10 @@ class SearchAlbumsPage extends StatelessWidget {
                 case SearchAlbumsPageStatus.success:
                   return AlbumsListWidget(
                     albums: state.itunesAlbums.value,
-                    bookmarkedAlbums: const [],
-                    onBookmarked: (albums) {},
+                    bookmarkedAlbums: state.bookmarkedAlbums.value,
+                    onBookmark: (albums) {
+                      logic.onBookmark(itunesAlbum: albums);
+                    },
                   );
                 case SearchAlbumsPageStatus.failure:
                   return ErrorMessageWidget(

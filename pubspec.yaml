@@ -37,6 +37,8 @@ dependencies:
 
   # state management, navigation, Dependency Injection, helper function
   get: ^4.6.1
+  # persistent local storage
+  get_storage: ^2.0.3
   # a package containing annotations for freezed.
   freezed_annotation: ^1.1.0
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
@@ -45,6 +47,8 @@ dependencies:
   dio: ^4.0.4
   # A flutter library to show images from the internet and keep them in the cache directory.
   cached_network_image: ^3.2.0
+  # Small, easy to use and extensible logger which prints beautiful logs.
+  logger: ^1.1.0
 
 dev_dependencies:
   flutter_test:

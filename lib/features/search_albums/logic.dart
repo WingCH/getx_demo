@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_demo/repositories/bookmark_repository/bookmark_repository.dart';
+import 'package:getx_demo/utils/logger.dart';
 
 import '../../repositories/itunes_repository/itunes_repository.dart';
 import '../../repositories/itunes_repository/itunes_repository_exception.dart';
+import '../../repositories/itunes_repository/models/itunes_search_response.dart';
 import 'models/search_albums_page_status.dart';
 import 'state.dart';
 
 class SearchAlbumsLogic extends GetxController {
   final SearchAlbumsState state = SearchAlbumsState();
   final ItunesRepository itunesRepository;
+  final BookmarkRepository bookmarkRepository;
 
   SearchAlbumsLogic({
     required this.itunesRepository,
+    required this.bookmarkRepository,
   });
 
   // for set textfield text programmatically
@@ -22,6 +27,7 @@ class SearchAlbumsLogic extends GetxController {
     super.onInit();
 
     textEditingController = TextEditingController();
+    state.bookmarkedAlbums = bookmarkRepository.getBookmarkedAlbums();
 
     debounce<String>(state.searchKey, (String newSearchKey) {
       fetchAlbums(searchKey: newSearchKey);
@@ -38,6 +44,23 @@ class SearchAlbumsLogic extends GetxController {
       state.pageStatus.value = SearchAlbumsPageStatus.initial;
     } else {
       state.searchKey.value = searchKey;
+    }
+  }
+
+  Future<void> onBookmark({
+    required ItunesAlbum itunesAlbum,
+  }) async {
+    try {
+      await bookmarkRepository.bookmarkOrUnbookmarkAlbums(
+        itunesAlbum: itunesAlbum,
+      );
+    } catch (e, s) {
+      LoggerService().e(e.toString(), error: e, stackTrace: s);
+      Get.snackbar(
+        'Bookmark Error',
+        e.toString(),
+        duration: const Duration(seconds: 1),
+      );
     }
   }
 

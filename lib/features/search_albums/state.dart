@@ -10,4 +10,5 @@ class SearchAlbumsState {
 
   final Rx<String> searchKey = Rx<String>('');
   final Rx<List<ItunesAlbum>> itunesAlbums = Rx<List<ItunesAlbum>>([]);
+  late Rx<List<ItunesAlbum>> bookmarkedAlbums;
 }
