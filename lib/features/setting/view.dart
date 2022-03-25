@@ -1,36 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:settings_ui/settings_ui.dart';
 
 import '../../generated/l10n.dart';
+import '../../repositories/app_setting_repository/app_setting_repository.dart';
 import 'logic.dart';
+import 'state.dart';
 
 class SettingPage extends StatelessWidget {
-  SettingPage({Key? key}) : super(key: key);
+  SettingPage({Key? key, required AppSettingRepository appSettingRepository})
+      : logic =
+            Get.put(SettingLogic(appSettingRepository: appSettingRepository)),
+        state = Get.find<SettingLogic>().state,
+        super(key: key);
 
-  final logic = Get.put(SettingLogic());
-  final state = Get.find<SettingLogic>().state;
+  final SettingLogic logic;
+  final SettingState state;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(S.current.settingPageTitle),
+        title: Text(S.of(context).settingPageTitle),
       ),
-      body: SettingsList(
-        sections: [
-          SettingsSection(
-            title: Text(S.current.settingPageGeneral),
-            tiles: <SettingsTile>[
-              SettingsTile.navigation(
-                leading: const Icon(Icons.language),
-                title: Text(S.current.settingPageLanguage),
-                value: const Text('English'),
-              ),
-            ],
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text(S.of(context).settingPageGeneral),
+            ...state.supportedLocales.map((locale) {
+              return Obx(() {
+                return RadioListTile<Locale>(
+                  value: locale,
+                  groupValue: state.currentLocale.value,
+                  title: Text(locale.toString()),
+                  onChanged: (locale) {
+                    if (locale != null) {
+                      logic.updateLocale(locale: locale);
+                    }
+                  },
+                );
+              });
+            }).toList()
+          ],
+        ),
       ),
     );
   }

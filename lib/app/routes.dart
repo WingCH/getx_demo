@@ -1,6 +1,7 @@
-import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:get/get.dart';
 import 'package:getx_demo/features/home/view.dart';
 import 'package:getx_demo/features/setting/view.dart';
+import 'package:getx_demo/repositories/app_setting_repository/app_setting_repository.dart';
 
 class Routes {
   static const home = '/home';
@@ -14,7 +15,9 @@ class Routes {
       ),
       GetPage(
         name: Routes.setting,
-        page: () => SettingPage(),
+        page: () => SettingPage(
+          appSettingRepository: Get.find<AppSettingRepository>(),
+        ),
       ),
     ];
   }

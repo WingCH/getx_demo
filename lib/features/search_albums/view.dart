@@ -34,10 +34,10 @@ class SearchAlbumsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(S.current.searchAlbumsPageTitle),
+        title: Text(S.of(context).searchAlbumsPageTitle),
         actions: [
           IconButton(
-            tooltip: S.current.homePageSettingButton,
+            tooltip: S.of(context).homePageSettingButton,
             icon: const Icon(Icons.settings),
             onPressed: logic.onSetting,
           )
@@ -48,7 +48,7 @@ class SearchAlbumsPage extends StatelessWidget {
           TextField(
             controller: logic.searchBarTextEditingController,
             decoration: InputDecoration(
-              labelText: S.current.searchAlbumsPageSearchBarName,
+              labelText: S.of(context).searchAlbumsPageSearchBarName,
               prefixIcon: const Icon(Icons.search),
             ),
             onChanged: (String input) {

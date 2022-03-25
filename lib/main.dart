@@ -6,6 +6,8 @@ import 'package:getx_demo/repositories/bookmark_repository/bookmark_repository.d
 import 'package:getx_demo/repositories/bookmark_repository/local_bookmark_repository.dart';
 
 import 'app/app.dart';
+import 'repositories/app_setting_repository/app_setting_repository.dart';
+import 'repositories/app_setting_repository/local_app_setting_repository.dart';
 import 'repositories/itunes_repository/itunes_repository.dart';
 import 'repositories/itunes_repository/real_itunes_repository.dart';
 
@@ -24,9 +26,21 @@ Future<void> main() async {
       LocalBookmarkRepository(box: GetStorage(LocalBookmarkRepository.boxKey));
   Get.put<BookmarkRepository>(bookmarkRepository, permanent: true);
 
+  // AppSettingRepository
+  await GetStorage.init(LocalAppSettingRepository.boxKey);
+  AppSettingRepository appSettingRepository = LocalAppSettingRepository(
+    box: GetStorage(LocalBookmarkRepository.boxKey),
+    defaultLocale: Get.deviceLocale ?? const Locale('en'),
+  );
+  Get.put<AppSettingRepository>(appSettingRepository, permanent: true);
+
   // -- dependency --
 
-  runApp(const App());
+  runApp(
+    App(
+      appSettingRepository: Get.find<AppSettingRepository>(),
+    ),
+  );
 }
 
 Dio createDio({

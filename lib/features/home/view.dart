@@ -46,9 +46,9 @@ class HomePage extends StatelessWidget {
                       ? const Icon(Icons.bookmarks_outlined)
                       : const SizedBox.shrink(),
               label: tab == HomeTab.search
-                  ? S.current.homePageTabSearch
+                  ? S.of(context).homePageTabSearch
                   : tab == HomeTab.bookmark
-                      ? S.current.homePageTabBookmark
+                      ? S.of(context).homePageTabBookmark
                       : tab.name,
             );
           }).toList(),

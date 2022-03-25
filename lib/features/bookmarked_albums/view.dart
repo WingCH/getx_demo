@@ -27,10 +27,10 @@ class BookmarkedAlbumsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(S.current.bookmarkPageTitle),
+        title: Text(S.of(context).bookmarkPageTitle),
         actions: [
           IconButton(
-            tooltip: S.current.homePageSettingButton,
+            tooltip: S.of(context).homePageSettingButton,
             icon: const Icon(Icons.settings),
             onPressed: logic.onSetting,
           )

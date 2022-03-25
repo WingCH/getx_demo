@@ -32,7 +32,7 @@ class SearchAlbumsPopularSearchesWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              S.current.searchAlbumsPagePopularSearches,
+              S.of(context).searchAlbumsPagePopularSearches,
               style: Theme.of(context).textTheme.headline5,
             ),
             ...popularKeys.map((popularKey) {
