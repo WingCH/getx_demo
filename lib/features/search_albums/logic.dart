@@ -51,8 +51,10 @@ class SearchAlbumsLogic extends GetxController {
       state.pageStatus.value = SearchAlbumsPageStatus.success;
     } on ItunesRepositoryException catch (e) {
       state.errorMessage.value = e.toString();
+      state.pageStatus.value = SearchAlbumsPageStatus.failure;
     } catch (e) {
       state.errorMessage.value = e.toString();
+      state.pageStatus.value = SearchAlbumsPageStatus.failure;
     }
   }
 }

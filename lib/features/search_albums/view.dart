@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../common_widgets/albums_list_widget.dart';
+import '../../common_widgets/error_message_widget.dart';
 import '../../repositories/itunes_repository/itunes_repository.dart';
 import 'logic.dart';
 import 'models/search_albums_page_status.dart';
@@ -56,12 +56,12 @@ class SearchAlbumsPage extends StatelessWidget {
                 case SearchAlbumsPageStatus.success:
                   return AlbumsListWidget(
                     albums: state.itunesAlbums.value,
-                    bookmarkedAlbums: [],
+                    bookmarkedAlbums: const [],
                     onBookmarked: (albums) {},
                   );
                 case SearchAlbumsPageStatus.failure:
-                  return Center(
-                    child: Text('failure'),
+                  return ErrorMessageWidget(
+                    errorMessage: state.errorMessage.value.toString(),
                   );
               }
             }),
