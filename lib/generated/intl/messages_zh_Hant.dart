@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "bookmarkPageEmptyMessage":
+            MessageLookupByLibrary.simpleMessage("你還沒有加入書籤"),
         "bookmarkPageTitle": MessageLookupByLibrary.simpleMessage("書籤"),
         "homePageSettingButton": MessageLookupByLibrary.simpleMessage("設定"),
         "homePageTabBookmark": MessageLookupByLibrary.simpleMessage("書籤"),

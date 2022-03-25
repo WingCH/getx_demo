@@ -7,6 +7,7 @@
   "searchAlbumsPageSearchBarName": "專輯名稱",
   "searchAlbumsPagePopularSearches": "熱門搜尋",
   "bookmarkPageTitle": "書籤",
+  "bookmarkPageEmptyMessage": "你還沒有加入書籤",
   "settingPageTitle": "設定",
   "settingPageGeneral": "一般",
   "settingPageLanguage": "語言"

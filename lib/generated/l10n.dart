@@ -120,6 +120,16 @@ class S {
     );
   }
 
+  /// `You haven't bookmarked`
+  String get bookmarkPageEmptyMessage {
+    return Intl.message(
+      'You haven\'t bookmarked',
+      name: 'bookmarkPageEmptyMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Setting`
   String get settingPageTitle {
     return Intl.message(

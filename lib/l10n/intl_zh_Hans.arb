@@ -8,6 +8,8 @@
   "searchAlbumsPageSearchBarName": "专辑名称",
   "searchAlbumsPagePopularSearches": "热门搜寻",
   "bookmarkPageTitle": "书签",
+  "bookmarkPageEmptyMessage": "你还没有加入书签",
+
   "settingPageTitle": "设定",
   "settingPageGeneral": "一般",
   "settingPageLanguage": "语言"

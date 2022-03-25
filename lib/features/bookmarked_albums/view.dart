@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../common_widgets/albums_list_widget.dart';
+import '../../common_widgets/empty_widget.dart';
 import '../../generated/l10n.dart';
 import '../../repositories/bookmark_repository/bookmark_repository.dart';
 import 'logic.dart';
@@ -37,13 +38,17 @@ class BookmarkedAlbumsPage extends StatelessWidget {
         ],
       ),
       body: Obx(() {
-        return AlbumsListWidget(
-          albums: state.bookmarkedAlbums.value,
-          bookmarkedAlbums: state.bookmarkedAlbums.value,
-          onBookmark: (albums) {
-            logic.onBookmark(itunesAlbum: albums);
-          },
-        );
+        return state.bookmarkedAlbums.value.isEmpty
+            ? EmptyWidget(
+                message: S.of(context).bookmarkPageEmptyMessage,
+              )
+            : AlbumsListWidget(
+                albums: state.bookmarkedAlbums.value,
+                bookmarkedAlbums: state.bookmarkedAlbums.value,
+                onBookmark: (albums) {
+                  logic.onBookmark(itunesAlbum: albums);
+                },
+              );
       }),
     );
   }
