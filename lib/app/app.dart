@@ -10,7 +10,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'GetX Demo',
-      initialRoute: Routes.Home,
+      initialRoute: Routes.home,
       getPages: Routes.pages,
     );
   }

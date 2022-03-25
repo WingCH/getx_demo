@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
         return BottomNavigationBar(
           currentIndex: state.selectedTab.value.index,
           onTap: (int index) {
-            logic.switchTab(index: index);
+            logic.onSwitchTab(index: index);
           },
           items: state.tabs.map((tab) {
             return BottomNavigationBarItem(

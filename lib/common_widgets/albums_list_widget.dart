@@ -49,7 +49,7 @@ class AlbumsListWidget extends StatelessWidget {
           ),
           trailing: IconButton(
             icon: bookmarkedAlbums.contains(itunesAlbum)
-                ? const Icon(Icons.bookmark_outlined, color: Colors.deepOrange,)
+                ? const Icon(Icons.bookmark_outlined, color: Colors.deepOrange)
                 : const Icon(Icons.bookmark_border_outlined),
             onPressed: () {
               onBookmark(itunesAlbum);

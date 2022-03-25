@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:getx_demo/repositories/bookmark_repository/bookmark_repository.dart';
 import 'package:getx_demo/utils/logger.dart';
 
+import '../../app/routes.dart';
 import '../../repositories/itunes_repository/itunes_repository.dart';
 import '../../repositories/itunes_repository/itunes_repository_exception.dart';
 import '../../repositories/itunes_repository/models/itunes_search_response.dart';
@@ -64,6 +65,10 @@ class SearchAlbumsLogic extends GetxController {
         duration: const Duration(seconds: 1),
       );
     }
+  }
+
+  void onSetting() {
+    Get.toNamed(Routes.setting);
   }
 
   Future<void> fetchAlbums({required String searchKey}) async {

@@ -6,7 +6,7 @@ import 'state.dart';
 class HomeLogic extends GetxController {
   final HomeState state = HomeState();
 
-  void switchTab({
+  void onSwitchTab({
     required int index,
   }) {
     HomeTab tab = state.tabs[index];

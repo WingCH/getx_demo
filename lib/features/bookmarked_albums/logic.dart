@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../app/routes.dart';
 import '../../repositories/bookmark_repository/bookmark_repository.dart';
 import '../../repositories/itunes_repository/models/itunes_search_response.dart';
 import '../../utils/logger.dart';
@@ -34,5 +35,9 @@ class BookmarkedAlbumsLogic extends GetxController {
         duration: const Duration(seconds: 1),
       );
     }
+  }
+
+  void onSetting() {
+    Get.toNamed(Routes.setting);
   }
 }

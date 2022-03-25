@@ -13,15 +13,12 @@ class BookmarkedAlbumsPage extends StatelessWidget {
   BookmarkedAlbumsPage({
     Key? key,
     required BookmarkRepository bookmarkRepository,
-  })
-      : logic = Get.put(
-    BookmarkedAlbumsLogic(
-      bookmarkRepository: bookmarkRepository,
-    ),
-  ),
-        state = Get
-            .find<BookmarkedAlbumsLogic>()
-            .state,
+  })  : logic = Get.put(
+          BookmarkedAlbumsLogic(
+            bookmarkRepository: bookmarkRepository,
+          ),
+        ),
+        state = Get.find<BookmarkedAlbumsLogic>().state,
         super(key: key);
 
   @override
@@ -29,7 +26,13 @@ class BookmarkedAlbumsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Bookedmark'),
+        title: const Text('Bookmarked'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: logic.onSetting,
+          )
+        ],
       ),
       body: Obx(() {
         return AlbumsListWidget(

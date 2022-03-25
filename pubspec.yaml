@@ -51,6 +51,8 @@ dependencies:
   logger: ^1.1.0
   # A package provides an easy way to add shimmer effect in Flutter project
   shimmer: ^2.0.0
+  # Settings UI for Flutter
+  settings_ui: ^2.0.2
 
 dev_dependencies:
   flutter_test:

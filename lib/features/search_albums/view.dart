@@ -34,6 +34,12 @@ class SearchAlbumsPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Search'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: logic.onSetting,
+          )
+        ],
       ),
       body: Column(
         children: [
