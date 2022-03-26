@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class AppSettingRepository {
@@ -8,4 +9,10 @@ abstract class AppSettingRepository {
   });
 
   Rx<Locale> getLocale();
+
+  Future<void> updateThemeMode({
+    required ThemeMode themeMode,
+  });
+
+  Rx<ThemeMode> getThemeMode();
 }

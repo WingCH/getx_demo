@@ -28,7 +28,7 @@ class App extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        themeMode: ThemeMode.dark,
+        themeMode: appSettingRepository.getThemeMode().value,
         theme: CustomTheme.lightTheme,
         darkTheme: CustomTheme.darkTheme,
         title: 'GetX Demo',

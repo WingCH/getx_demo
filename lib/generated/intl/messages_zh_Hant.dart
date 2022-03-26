@@ -35,6 +35,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchAlbumsPageTitle": MessageLookupByLibrary.simpleMessage("搜尋"),
         "settingPageGeneral": MessageLookupByLibrary.simpleMessage("一般"),
         "settingPageLanguage": MessageLookupByLibrary.simpleMessage("語言"),
+        "settingPageLanguageEn":
+            MessageLookupByLibrary.simpleMessage("English"),
+        "settingPageLanguageZh_hans":
+            MessageLookupByLibrary.simpleMessage("简体中文"),
+        "settingPageLanguageZh_hant":
+            MessageLookupByLibrary.simpleMessage("繁體中文"),
+        "settingPageTheme": MessageLookupByLibrary.simpleMessage("主題"),
+        "settingPageThemeDark": MessageLookupByLibrary.simpleMessage("深色"),
+        "settingPageThemeLight": MessageLookupByLibrary.simpleMessage("淺色"),
+        "settingPageThemeSystem": MessageLookupByLibrary.simpleMessage("系統"),
         "settingPageTitle": MessageLookupByLibrary.simpleMessage("設定")
       };
 }

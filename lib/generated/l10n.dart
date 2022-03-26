@@ -159,6 +159,76 @@ class S {
       args: [],
     );
   }
+
+  /// `English`
+  String get settingPageLanguageEn {
+    return Intl.message(
+      'English',
+      name: 'settingPageLanguageEn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `简体中文`
+  String get settingPageLanguageZh_hans {
+    return Intl.message(
+      '简体中文',
+      name: 'settingPageLanguageZh_hans',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `繁體中文`
+  String get settingPageLanguageZh_hant {
+    return Intl.message(
+      '繁體中文',
+      name: 'settingPageLanguageZh_hant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get settingPageTheme {
+    return Intl.message(
+      'Theme',
+      name: 'settingPageTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get settingPageThemeLight {
+    return Intl.message(
+      'Light',
+      name: 'settingPageThemeLight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark`
+  String get settingPageThemeDark {
+    return Intl.message(
+      'Dark',
+      name: 'settingPageThemeDark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `System`
+  String get settingPageThemeSystem {
+    return Intl.message(
+      'System',
+      name: 'settingPageThemeSystem',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+import 'package:flutter/src/material/app.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -7,40 +9,53 @@ import 'app_setting_repository.dart';
 
 class LocalAppSettingRepository extends AppSettingRepository {
   static const boxKey = 'localAppSettingRepositoryBox';
+
+  //-- locale
   static const languageCodeKey = 'languageCode';
   static const scriptCodeKey = 'scriptCode';
   static const countryCodeKey = 'countryCode';
 
+  // themeMode
+  static const themeModeKey = 'themeMode';
+
   final GetStorage box;
   final Locale defaultLocale;
-  late Rx<Locale> _local;
+  final ThemeMode defaultThemeMode;
+  Rx<Locale>? _localRx;
+  Rx<ThemeMode>? _themeModeRx;
 
   LocalAppSettingRepository({
     required this.box,
     required this.defaultLocale,
+    required this.defaultThemeMode,
   }) {
     _init();
   }
 
   void _init() {
-    Locale? current = _getLocaleFromLocal();
-    if (current == null) {
-      _local = Rx<Locale>(defaultLocale);
+    _fetchLocale();
+    _fetchThemeMode();
+  }
+
+  void _fetchLocale() {
+    Locale locale = _getLocaleFromLocalStorage() ?? defaultLocale;
+    if (_localRx == null) {
+      _localRx = Rx<Locale>(locale);
     } else {
-      _local = Rx<Locale>(current);
+      _localRx!.value = locale;
     }
   }
 
-  void fetchLocal() {
-    Locale? current = _getLocaleFromLocal();
-    if (current == null) {
-      _local.value = defaultLocale;
+  void _fetchThemeMode() {
+    ThemeMode? themeMode = _getThemeModeFromLocalStorage() ?? defaultThemeMode;
+    if (_themeModeRx == null) {
+      _themeModeRx = Rx<ThemeMode>(themeMode);
     } else {
-      _local.value = current;
+      _themeModeRx!.value = themeMode;
     }
   }
 
-  Locale? _getLocaleFromLocal() {
+  Locale? _getLocaleFromLocalStorage() {
     String? languageCode = box.read(languageCodeKey);
     String? scriptCode = box.read(scriptCodeKey);
     String? countryCode = box.read(countryCodeKey);
@@ -55,9 +70,18 @@ class LocalAppSettingRepository extends AppSettingRepository {
     }
   }
 
+  ThemeMode? _getThemeModeFromLocalStorage() {
+    String? themeModeRaw = box.read(themeModeKey);
+    if (themeModeRaw == null) {
+      return null;
+    } else {
+      return ThemeMode.values.byName(themeModeRaw);
+    }
+  }
+
   @override
   Rx<Locale> getLocale() {
-    return _local;
+    return _localRx!;
   }
 
   @override
@@ -69,6 +93,19 @@ class LocalAppSettingRepository extends AppSettingRepository {
     box.write(scriptCodeKey, scriptCode);
     box.write(countryCodeKey, countryCode);
 
-    fetchLocal();
+    _fetchLocale();
+  }
+
+  @override
+  Rx<ThemeMode> getThemeMode() {
+    return _themeModeRx!;
+  }
+
+  @override
+  Future<void> updateThemeMode({required ThemeMode themeMode}) async {
+    String themeModeRaw = themeMode.name;
+    box.write(themeModeKey, themeModeRaw);
+
+    _fetchThemeMode();
   }
 }

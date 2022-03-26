@@ -10,5 +10,12 @@
   "bookmarkPageEmptyMessage": "You haven't bookmarked",
   "settingPageTitle": "Setting",
   "settingPageGeneral": "General",
-  "settingPageLanguage": "Language"
+  "settingPageLanguage": "Language",
+  "settingPageLanguageEn": "English",
+  "settingPageLanguageZh_hans": "简体中文",
+  "settingPageLanguageZh_hant": "繁體中文",
+  "settingPageTheme": "Theme",
+  "settingPageThemeLight": "Light",
+  "settingPageThemeDark": "Dark",
+  "settingPageThemeSystem": "System"
 }

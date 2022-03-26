@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_demo/utils/intl_extension.dart';
 
 import '../../generated/l10n.dart';
 import '../../repositories/app_setting_repository/app_setting_repository.dart';
@@ -26,22 +27,52 @@ class SettingPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(S.of(context).settingPageGeneral),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, top: 8),
+              child: Text(S.of(context).settingPageLanguage),
+            ),
             ...state.supportedLocales.map((locale) {
               return Obx(() {
                 return RadioListTile<Locale>(
                   value: locale,
                   groupValue: state.currentLocale.value,
-                  title: Text(locale.toString()),
-                  onChanged: (locale) {
-                    if (locale != null) {
-                      logic.updateLocale(locale: locale);
+                  title: Text(
+                    'settingPageLanguage${locale.toString().capitalize}'.locale(
+                      fallback: locale.toString(),
+                    ),
+                  ),
+                  onChanged: (newLocale) {
+                    if (newLocale != null) {
+                      logic.updateLocale(locale: newLocale);
                     }
                   },
                 );
               });
-            }).toList()
+            }).toList(),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, top: 8),
+              child: Text(S.of(context).settingPageTheme),
+            ),
+            ...state.allThemeModes.map((themeMode) {
+              return Obx(() {
+                return RadioListTile<ThemeMode>(
+                  value: themeMode,
+                  groupValue: state.currentThemeMode.value,
+                  title: Text(
+                    'settingPageTheme${themeMode.name.capitalize}'.locale(
+                      fallback: themeMode.name,
+                    ),
+                  ),
+                  onChanged: (newThemeMode) {
+                    if (newThemeMode != null) {
+                      logic.updateThemeMode(themeMode: newThemeMode);
+                    }
+                  },
+                );
+              });
+            }).toList(),
           ],
         ),
       ),

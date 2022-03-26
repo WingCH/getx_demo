@@ -31,6 +31,7 @@ Future<void> main() async {
   AppSettingRepository appSettingRepository = LocalAppSettingRepository(
     box: GetStorage(LocalBookmarkRepository.boxKey),
     defaultLocale: Get.deviceLocale ?? const Locale('en'),
+    defaultThemeMode: ThemeMode.dark,
   );
   Get.put<AppSettingRepository>(appSettingRepository, permanent: true);
 
