@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../generated/l10n.dart';
 import '../repositories/app_setting_repository/app_setting_repository.dart';
+import '../theme/custom_theme.dart';
 import 'routes.dart';
 
 class App extends StatelessWidget {
@@ -27,6 +28,9 @@ class App extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
+        themeMode: ThemeMode.dark,
+        theme: CustomTheme.lightTheme,
+        darkTheme: CustomTheme.darkTheme,
         title: 'GetX Demo',
         initialRoute: Routes.home,
         getPages: Routes.pages,

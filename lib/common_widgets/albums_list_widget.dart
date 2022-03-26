@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../repositories/itunes_repository/models/itunes_search_response.dart';
+import '../theme/custom_colors.dart';
 
 class AlbumsListWidget extends StatelessWidget {
   const AlbumsListWidget({
@@ -49,7 +50,7 @@ class AlbumsListWidget extends StatelessWidget {
           ),
           trailing: IconButton(
             icon: bookmarkedAlbums.contains(itunesAlbum)
-                ? const Icon(Icons.bookmark_outlined, color: Colors.deepOrange)
+                ? Icon(Icons.bookmark_outlined, color: CustomColor.color1)
                 : const Icon(Icons.bookmark_border_outlined),
             onPressed: () {
               onBookmark(itunesAlbum);
