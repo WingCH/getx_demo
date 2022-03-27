@@ -14,6 +14,7 @@
   * [Setting Page](#Setting-Page)
 * [Technical point](#Technical-point)
 * [Project Structure](#Project-Structure)
+* [Other](#other)
 
 ## Usage
 
@@ -231,3 +232,12 @@ lib
      └── error_message_widget.dart
 ```
 
+---
+
+### Other
+
+https://twitter.com/filiphracek/status/1468565501701939203?s=21&t=jERRyqZ_phWOB0ebXNTnhA
+
+#### Widget Context
+
+![Flutter - Widget-Context-Stage - 台部落](https://pic1.xuehuaimg.com/proxy/https://segmentfault.com/img/bVbriRF?w=681&h=681)
