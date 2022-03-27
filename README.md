@@ -7,13 +7,13 @@
 * [Usage](#Usage)
 * [ScreenShort](#ScreenShort)
 * [Sitemap](#Sitemap)
-* [Architecture (GetX)](#Architecture (GetX))
+* [Architecture (GetX)](#Architecture-getx)
   * [Overall](#Overall)
-  * [Search Albums Page](#Search Albums Page)
-  * [Bookmarked Albums Page](#Bookmarked Albums Page)
-  * [Setting Page](#Setting Page)
-* [Technical point](#Technical point)
-* [Project Structure](#Project Structure)
+  * [Search Albums Page](#Search-Albums-Page)
+  * [Bookmarked Albums Page](#Bookmarked-Albums-Page)
+  * [Setting Page](#Setting-Page)
+* [Technical point](#Technical-point)
+* [Project Structure](#Project-Structure)
 
 ## Usage
 
