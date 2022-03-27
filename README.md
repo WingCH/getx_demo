@@ -64,7 +64,10 @@ flutter run -d  emulator-5554
      - [Bloc](https://pub.dev/packages/bloc)
 
 2. Navigation
-   - [get (GetX)](https://pub.dev/packages/get)
+
+   - [Learning Flutter’s new navigation and routing system](https://medium.com/flutter/learning-flutters-new-navigation-and-routing-system-7c9068155ade)
+
+   - [get (GetX)](https://pub.dev/packages/get) (Navigation 1.0)
 
      - reference
        - [getx/documentation/en_US/route_management.md](getx/documentation/en_US/route_management.md)
@@ -96,7 +99,7 @@ flutter run -d  emulator-5554
      ```
 
    - other option
-     - [go_router](https://pub.dev/packages/go_router)
+     - [go_router ](https://pub.dev/packages/go_router) (Navigation 2.0)
 
 3. Persistent local storage
    - [get_storage](https://pub.dev/packages/get_storage)
