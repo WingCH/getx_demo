@@ -6,6 +6,7 @@ import 'package:getx_demo/repositories/bookmark_repository/bookmark_repository.d
 import 'package:getx_demo/repositories/bookmark_repository/local_bookmark_repository.dart';
 
 import 'app/app.dart';
+import 'generated/l10n.dart';
 import 'repositories/app_setting_repository/app_setting_repository.dart';
 import 'repositories/app_setting_repository/local_app_setting_repository.dart';
 import 'repositories/itunes_repository/itunes_repository.dart';
@@ -22,16 +23,19 @@ Future<void> main() async {
 
   // BookmarkRepository
   await GetStorage.init(LocalBookmarkRepository.boxKey);
-  BookmarkRepository bookmarkRepository =
-      LocalBookmarkRepository(box: GetStorage(LocalBookmarkRepository.boxKey));
+  BookmarkRepository bookmarkRepository = LocalBookmarkRepository(
+    box: GetStorage(LocalBookmarkRepository.boxKey),
+  );
   Get.put<BookmarkRepository>(bookmarkRepository, permanent: true);
 
   // AppSettingRepository
   await GetStorage.init(LocalAppSettingRepository.boxKey);
   AppSettingRepository appSettingRepository = LocalAppSettingRepository(
-    box: GetStorage(LocalBookmarkRepository.boxKey),
-    defaultLocale: Get.deviceLocale ?? const Locale('en'),
-    defaultThemeMode: ThemeMode.dark,
+    box: GetStorage(LocalAppSettingRepository.boxKey),
+    defaultLocale: S.delegate.supportedLocales.contains(Get.deviceLocale)
+        ? Get.deviceLocale!
+        : const Locale('en'),
+    defaultThemeMode: ThemeMode.system,
   );
   Get.put<AppSettingRepository>(appSettingRepository, permanent: true);
 

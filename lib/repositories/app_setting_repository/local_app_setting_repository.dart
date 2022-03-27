@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/app.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -38,7 +35,22 @@ class LocalAppSettingRepository extends AppSettingRepository {
   }
 
   void _fetchLocale() {
-    Locale locale = _getLocaleFromLocalStorage() ?? defaultLocale;
+    Locale locale;
+
+    String? languageCode = box.read(languageCodeKey);
+    String? scriptCode = box.read(scriptCodeKey);
+    String? countryCode = box.read(countryCodeKey);
+
+    if (languageCode == null) {
+      locale = defaultLocale;
+    } else {
+      locale = Locale.fromSubtags(
+        languageCode: languageCode,
+        scriptCode: scriptCode,
+        countryCode: countryCode,
+      );
+    }
+
     if (_localRx == null) {
       _localRx = Rx<Locale>(locale);
     } else {
@@ -52,21 +64,6 @@ class LocalAppSettingRepository extends AppSettingRepository {
       _themeModeRx = Rx<ThemeMode>(themeMode);
     } else {
       _themeModeRx!.value = themeMode;
-    }
-  }
-
-  Locale? _getLocaleFromLocalStorage() {
-    String? languageCode = box.read(languageCodeKey);
-    String? scriptCode = box.read(scriptCodeKey);
-    String? countryCode = box.read(countryCodeKey);
-    if (languageCode == null) {
-      return null;
-    } else {
-      return Locale.fromSubtags(
-        languageCode: languageCode,
-        scriptCode: scriptCode,
-        countryCode: countryCode,
-      );
     }
   }
 
