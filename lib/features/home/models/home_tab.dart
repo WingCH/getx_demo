@@ -1,4 +1,0 @@
-enum HomeTab {
-  search,
-  bookmark,
-}
