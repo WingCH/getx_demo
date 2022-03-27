@@ -2,13 +2,25 @@
 
 [demo apk](https://raw.githubusercontent.com/WingCH/getx_demo/main/doc/app-release.apk)
 
+## Contents
 
+* [Usage](#Usage)
+* [ScreenShort](#ScreenShort)
+* [Sitemap](#Sitemap)
+* [Architecture (GetX)](#Architecture (GetX))
+  * [Overall](#Overall)
+  * [Search Albums Page](#Search Albums Page)
+  * [Bookmarked Albums Page](#Bookmarked Albums Page)
+  * [Setting Page](#Setting Page)
+* [Technical point](#Technical point)
+* [Project Structure](#Project Structure)
 
-# Content
+## Usage
 
-[ScreenShort](#ScreenShort)
-
-[Sitemap](#Sitemap)
+```
+flutter pub get
+flutter run -d  emulator-5554 
+```
 
 ## ScreenShort
 
@@ -16,13 +28,15 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | <img src="https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/Screenshot_20220327_105201.png" alt="Screenshot_20220327_105201" style="zoom:25%;" /> | <img src="https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/Screenshot_20220327_105114.png" alt="Screenshot_20220327_105114" style="zoom:25%;" /> | <img src="https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/Screenshot_20220327_105108.png" alt="Screenshot_20220327_105108" style="zoom:25%;" /> | <img src="https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/Screenshot_20220327_105058.png" alt="Screenshot_20220327_105058" style="zoom:25%;" /> |
 
+
+
 ## Sitemap
 
 <img src="https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/image-20220327103058996.png" alt="image-20220327103058996" style="zoom: 20%;" />
 
 ## Architecture (GetX)
 
-### Overall structure
+### Overall
 
 <img src="https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/image-20220324143954889.png" alt="image-20220324143954889" style="zoom:20%;" />
 
@@ -142,6 +156,12 @@
 9. Webview
    - [webview_flutter](https://pub.dev/packages/webview_flutter) (official)
    - [flutter_inappwebview](https://pub.dev/packages/flutter_inappwebview)
+
+10. Other
+
+   - [Flutter Version Management: fvm](https://fvm.app/)
+      - manage and cache multiple Flutter SDK Versions
+
 
 ---
 
