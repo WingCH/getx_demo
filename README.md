@@ -1,6 +1,6 @@
 # GetX Architecture demo
 
-
+[demo apk](https://raw.githubusercontent.com/WingCH/getx_demo/main/doc/app-release.apk)
 
 ## ScreenShort
 
