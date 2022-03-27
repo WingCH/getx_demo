@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'dev'
+          channel: 'stable'
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
@@ -28,7 +28,7 @@ jobs:
           git status
           # in line 30 after @ add your repo link  
           # git remote add origin https://${{secrets.hosting_secret}}@repo_link
-          git remote add origin https://${{secrets.hosting_secret}}@github.com/Baluds/flutter_web.git
+          git remote add origin https://${{secrets.hosting_secret}}@github.com/WingCH/getx_demo.git
           git checkout -b gh-pages
           git add --all
           git commit -m "update"
